@@ -1,17 +1,11 @@
 <!DOCTYPE html>
-<!--
 
-
-		~~~ Демонстрация возможностей FileAPI ~~~
-
-
--->
-<html>
+<html class="no-js" lang="ug" dir="rtl">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-	<title>FileAPI :: Demo :: example</title>
+	<title>FileAPI :: سىناق :: مىساللار</title>
 
 	<meta name="viewport" content="user-scalable=no, width=400, initial-scale=0.8, maximum-scale=0.8" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -27,6 +21,9 @@
 			  debug: true
 			, staticPath: '../dist/'
 		};
+		var Options = {
+			single : false
+		}
 	</script>
 	<script src="../dist/FileAPI.min.js"></script>
 	<script src="../plugins/FileAPI.id3.js"></script>
@@ -71,48 +68,48 @@
 	</script>
 
 	<style>
-		body {
-			font-size: 15px;
-			font-family: "Helvetica Neue";
-		}
+	body {
+		font-size: 15px;
+		font-family: "UKIJ Tuz Tom";
+	}
 
-		.b-button {
-			display: inline-block;
-			*display: inline;
-			*zoom: 1;
-			position: relative;
-			overflow: hidden;
-			cursor: pointer;
-			padding: 4px 15px;
-			vertical-align: middle;
-			border: 1px solid #ccc;
-			border-radius: 3px;
-			background-color: #f5f5f5;
-			background: -moz-linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
-			background: -webkit-linear-gradient(top, #fff 0%,#f5f5f5 49%,#ececec 50%,#eee 100%);
-			background: -o-linear-gradient(top, #fff 0%,#f5f5f5 49%,#ececec 50%,#eee 100%);
-			background: linear-gradient(to bottom, #fff 0%,#f5f5f5 49%,#ececec 50%,#eee 100%);
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			user-select: none;
-		}
-			.b-button_hover {
-				border-color: #fa0;
-				box-shadow: 0 0 2px #fa0;
-			}
+	.upload-button {
+		display: inline-block;
+		*display: inline;
+		*zoom: 1;
+		position: relative;
+		overflow: hidden;
+		cursor: pointer;
+		padding: 4px 15px;
+		vertical-align: middle;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		background-color: #f5f5f5;
+		background: -moz-linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
+		background: -webkit-linear-gradient(top, #fff 0%,#f5f5f5 49%,#ececec 50%,#eee 100%);
+		background: -o-linear-gradient(top, #fff 0%,#f5f5f5 49%,#ececec 50%,#eee 100%);
+		background: linear-gradient(to bottom, #fff 0%,#f5f5f5 49%,#ececec 50%,#eee 100%);
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		user-select: none;
+	}
+	.button-hover {
+		border-color: #fa0;
+		box-shadow: 0 0 2px #fa0;
+	}
 
-			.b-button__text {
-			}
+	.button-text {
+	}
 
-			.b-button__input {
-				cursor: pointer;
-				opacity: 0;
-				filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
-				top: -10px;
-				right: -40px;
-				font-size: 50px;
-				position: absolute;
-			}
+	.button-input {
+		cursor: pointer;
+		opacity: 0;
+		filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+		top: -10px;
+		right: -40px;
+		font-size: 50px;
+		position: absolute;
+	}
 
 
 	#preview {
@@ -120,157 +117,170 @@
 		box-shadow: 0 1px 3px rgba(0,0,0,.4);
 		border-radius: 3px;
 	}
-		.b-file {
-			height: 40px;
-			padding: 5px;
-			position: relative;
-			overflow: hidden;
-			border-radius: 3px;
-			background-color: #fcfcfc;
-			background: -webkit-linear-gradient(top, #fcfcfc 0%, #f6f6f6 100%);
-			background: -moz-linear-gradient(top, #fcfcfc 0%, #f6f6f6 100%);
-			background: -o-linear-gradient(top, #fcfcfc 0%, #f6f6f6 100%);
-			background: linear-gradient(to bottom, #fcfcfc 0%, #f6f6f6 100%);
-			clear: both;
-		}
-			.b-file__left {
-				float: left;
-				margin: 1px 0 0 2px;
-				line-height: 0;
-			}
-				.b-file__left_border {
-					border: 2px solid #fff;
-					border-radius: 4px;
-				}
+	.b-file {
+		height: 60px;
+		padding: 5px;
+		position: relative;
+		overflow: hidden;
+		border-radius: 3px;
+		background-color: #fcfcfc;
+		background: -webkit-linear-gradient(top, #fcfcfc 0%, #f6f6f6 100%);
+		background: -moz-linear-gradient(top, #fcfcfc 0%, #f6f6f6 100%);
+		background: -o-linear-gradient(top, #fcfcfc 0%, #f6f6f6 100%);
+		background: linear-gradient(to bottom, #fcfcfc 0%, #f6f6f6 100%);
+		clear: both;
+	}
+	.image-container {
+		float: right;
+		margin: 1px 0 0 2px;
+		line-height: 0;
+	}
+	.image-container-border {
+		border: 2px solid #fff;
+		border-radius: 4px;
+	}
 
-			.b-file__right {
-				margin-left: 45px;
-			}
+	.info-container {
+		margin-right: 75px;
+	}
 
-			.b-file__name {
-				color: #36c;
-				cursor: pointer;
-				border-bottom: 1px dotted #36c;
-				text-decoration: none;
-			}
-				.b-file__name:hover {
-					color: #f00;
-					border-bottom-color: #f00;
-				}
+	.file-name {
+		color: #36c;
+		cursor: pointer;
+		border-bottom: 1px dotted #36c;
+		text-decoration: none;
+	}
+	.file-name:hover {
+		color: #f00;
+		border-bottom-color: #f00;
+	}
 
-			.b-file__info {
-				color: #666;
-				position: absolute;
-				font-size: 12px;
-				margin-top: 3px;
-			}
+	.file-info {
+		color: #666;
+		position: absolute;
+		font-size: 12px;
+		margin-top: 3px;
+		direction: rtl;
+		text-align: right;
+	}
 
-			.b-file__bar {
-				padding-top: 4px;
-			}
+	.file-bar {
+		padding-top: 4px;
+	}
 
-			.b-file__error {
-				color: #c00;
-			}
-			.b-file__done {
-				color: #458383;
-			}
-			.b-file__abort {
-				top: 10px;
-				right: 20px;
-				width: 15px;
-				height: 15px;
-				position: absolute;
-				color: #c00;
-				cursor: pointer;
-				font-size: 20px;
-				display: none;
-			}
-				.b-file_upload .b-file__abort { display: block; }
+	.file-error {
+		color: #c00;
+	}
+	.file-done {
+		color: #458383;
+	}
+	.file-abort {
+		top: 10px;
+		left: 0px;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		color: #c00;
+		cursor: pointer;
+		font-size: 30px;
+		display: none;
+	}
+	.file-delete {
+		top: 10px;
+		left: 0px;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		color: #c00;
+		cursor: pointer;
+		font-size: 30px;
+		display: block;
+	}
+	.file-upload .file-abort { display: block; }
 
-		.b-progress {
-			width: 200px;
-			height: 10px;
-			border: 2px solid #E2E4E2;
-			border-radius: 10px;
-			box-shadow: inset 0 1px 1px rgba(0,0,0,.2);
-			background-color: #d3d3d3;
-			position: relative;
-		}
-			.b-progress__bar {
-				width: 0;
-				height: 10px;
-				border-radius: 10px;
-				background-color: #2D9DD7;
-				background: -webkit-linear-gradient(top, #2D9DD7 0%, #1C81C7 100%); /* FF3.6+ */
-				background: -moz-linear-gradient(top, #2D9DD7 0%, #1C81C7 100%); /* FF3.6+ */
-				background: linear-gradient(to bottom, #2D9DD7 0%, #1C81C7 100%); /* FF3.6+ */
-				-webkit-transition: width .5s ease-out;
-				-moz-transition: width .5s ease-out;
-				-ms-transition: width .5s ease-out;
-				transition: width .5s ease-out;
-			}
+	.file-progress {
+		width: 200px;
+		height: 10px;
+		border: 2px solid #E2E4E2;
+		border-radius: 10px;
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.2);
+		background-color: #d3d3d3;
+		position: relative;
+	}
+	.file-progress-bar {
+		width: 0;
+		height: 10px;
+		border-radius: 10px;
+		background-color: #2D9DD7;
+		background: -webkit-linear-gradient(top, #2D9DD7 0%, #1C81C7 100%); /* FF3.6+ */
+		background: -moz-linear-gradient(top, #2D9DD7 0%, #1C81C7 100%); /* FF3.6+ */
+		background: linear-gradient(to bottom, #2D9DD7 0%, #1C81C7 100%); /* FF3.6+ */
+		-webkit-transition: width .5s ease-out;
+		-moz-transition: width .5s ease-out;
+		-ms-transition: width .5s ease-out;
+		transition: width .5s ease-out;
+	}
 
-		.b-dropzone,
-		.b-dropzone__bg {
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			z-index: 30000;
-			position: absolute;
-		}
-			.b-dropzone__bg {
-				opacity: .2;
-				background-color: #2D9DD7
-			}
-			.b-dropzone__txt {
-				color: #1C81C7;
-				text-shadow: 0 2px 1px #113C53;
-				font-size: 400%;
-				font-weight: bold;
-				text-align: center;
-				width: 500px;
-				top: 50%;
-				left: 50%;
-				margin: -100px 0 0 -250px;
-				z-index: 30001;
-				position: absolute;
-			}
+	.dropzone,
+	.dropzone-bg {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 30000;
+		position: absolute;
+	}
+	.dropzone-bg {
+		opacity: .2;
+		background-color: #2D9DD7
+	}
+	.dropzone-txt {
+		color: #1C81C7;
+		text-shadow: 0 2px 1px #113C53;
+		font-size: 400%;
+		font-weight: bold;
+		text-align: center;
+		width: 500px;
+		top: 50%;
+		left: 50%;
+		margin: -100px 0 0 -250px;
+		z-index: 30001;
+		position: absolute;
+	}
 
-		.b-layer {
-			border: 3px solid #fff;
-			border-radius: 5px;
-			box-shadow: 0 1px 30px #000;
-			background-color: #f3f3f3;
-			top: 50px;
-			left: 50%;
-			z-index: 30002;
-			position: absolute;
-			margin-left: -150px;
-			margin-bottom: 100px;
-		}
-			.b-layer__h1 {
-				color: #fff;
-				padding: 10px 10px;
-				width: 300px;
-				overflow: hidden;
-				background-color: #2D9DD7;
-			}
-			.b-layer__img {
-				padding: 5px 10px;
-				text-align: center;
-				border-top: 2px solid #fff;
-			}
-			.b-layer__info {
-				padding: 2px 15px;
-				border-top: 2px solid #fff;
-			}
-				.b-layer__info div {
-					width: 280px;
-					overflow: hidden;
-					white-space: nowrap;
-				}
+	.list-layer {
+		border: 3px solid #fff;
+		border-radius: 5px;
+		box-shadow: 0 1px 30px #000;
+		background-color: #f3f3f3;
+		top: 50px;
+		left: 50%;
+		z-index: 30002;
+		position: absolute;
+		margin-left: -150px;
+		margin-bottom: 100px;
+	}
+	.list-layer-h1 {
+		color: #fff;
+		padding: 10px 10px;
+		width: 300px;
+		overflow: hidden;
+		background-color: #2D9DD7;
+	}
+	.list-layer-img {
+		padding: 5px 10px;
+		text-align: center;
+		border-top: 2px solid #fff;
+	}
+	.list-layer-info {
+		padding: 2px 15px;
+		border-top: 2px solid #fff;
+	}
+	.list-layer-info div {
+		width: 280px;
+		overflow: hidden;
+		white-space: nowrap;
+	}
 
 
 	</style>
@@ -278,45 +288,44 @@
 </head>
 <body>
 	<div style="left: 0; right: 0; bottom: 0; position: fixed; box-shadow: 0 0 5px rgba(0,0,0,.65); background-color: #f3f3f3;">
-		<div style="padding: 5px 10px 10px">
-			<a href="../">&larr; index</a> |
-			<b>demo</b> -
-			<a href="./userpic.html">userpic</a> -
-			<a href="./thumbnails.html">thumbnails</a> -
+		<div style="padding: 5px 10px 10px;direction:rtl;text-align:right;">
+			<a href="../">&rarr; مىساللار باش بېتى</a> |
+			<b>ئورگان سىناق</b> -
+			<a href="./userpic.html">بىر ھۈججەت يوللاش</a> -
+			<a href="./thumbnails.html">ئالاھىدە يوللاش</a> -
 			<a href="./watermark.html">watermark</a> -
 			<a href="./webcam.html">webcam</a> -
 			<a href="./caman.html">caman.js</a>
 		</div>
 	</div>
 
-	<div id="drop-zone" class="b-dropzone" style="display: none">
-		<div class="b-dropzone__bg"></div>
-		<div class="b-dropzone__txt">Drop files there</div>
+	<div id="drop-zone" class="dropzone" style="display: none">
+		<div class="dropzone-bg"></div>
+		<div class="dropzone-txt">ھۈججەتنى بۇ يەرگە تاشلاڭ</div>
 	</div>
 
 	<div id="oooops" style="display: none; margin: 10px; padding: 10px; border: 2px solid #f60; border-radius: 4px;">
-		Увы, ваш браузер не поддерживает html5 и flash,
-		поэтому смотреть тут нечего, а iframe не даёт всей красоты :]
+		كەچۈرۈڭ سىزنىڭ تور كۆرگىچىڭىز بىزنىڭ رەسىم يوللاش ئۇسۇلىمىزنى قوللىمايدىكەن.
 	</div>
 
 	<div id="buttons-panel">
-		<div class="b-button js-fileapi-wrapper">
-			<div class="b-button__text">Upload one file</div>
-			<input name="files" class="b-button__input" type="file" />
+		<div class="upload-button js-fileapi-wrapper">
+			<div class="button-text">بىر ھۈججەت يوللاش</div>
+			<input name="files" class="button-input" type="file" />
 		</div>
 
-		<div class="b-button js-fileapi-wrapper">
-			<div class="b-button__text">Multiple</div>
-			<input name="files" class="b-button__input" type="file" multiple />
+		<div class="upload-button js-fileapi-wrapper">
+			<div class="button-text">كۆپ ھۈججەت يوللاش</div>
+			<input name="files" class="button-input" type="file" multiple />
 		</div>
 
-		<div class="b-button js-fileapi-wrapper">
-			<div class="b-button__text">jpg, jpeg & gif</div>
-			<input name="files" class="b-button__input" type="file" accept="image/*" multiple />
+		<div class="upload-button js-fileapi-wrapper">
+			<div class="button-text">jpg, jpeg & gif</div>
+			<input name="files" class="button-input" type="file" accept="image/*" multiple />
 		</div>
 
 		<span id="drag-n-drop" style="display: none; padding: 0 30px">
-			or &nbsp; &nbsp; drag'n'drop
+			ياكى ھۈججەتنى كۆزنەككە تاشلىسىڭىزمۇ بولىدۇ
 		</span>
 	</div>
 
@@ -324,41 +333,26 @@
 
 	<script id="b-file-ejs" type="text/ejs">
 		<div id="file-<%=FileAPI.uid(file)%>" class="js-file b-file b-file_<%=file.type.split('/')[0]%>">
-			<div class="js-left b-file__left">
+			<div class="image-thumbnail image-container">
 				<img src="<%=icon[file.type.split('/')[0]]||icon.def%>" width="32" height="32" style="margin: 2px 0 0 3px"/>
 			</div>
-			<div class="b-file__right">
-				<div><a class="js-name b-file__name"><%=file.name%></a></div>
-				<div class="js-info b-file__info">size: <%=(file.size/FileAPI.KB).toFixed(2)%> KB</div>
-				<div class="js-progress b-file__bar" style="display: none">
-					<div class="b-progress"><div class="js-bar b-progress__bar"></div></div>
+			<div class="info-container">
+				<div><a class="js-name file-name"><%=file.name%></a></div>
+				<div class="js-info file-info">ھۈججەت چوڭلىقى: <%=(file.size/FileAPI.KB).toFixed(2)%> KB</div>
+				<div class="js-progress file-bar" style="display: none">
+					<div class="file-progress"><div class="js-bar file-progress-bar"></div></div>
 				</div>
 			</div>
-			<i class="js-abort b-file__abort" title="abort">&times;</i>
+			<i class="js-abort file-abort" title="abort">&times;</i>
+			<i class="js-delete file-delete" title="delete">&times;</i>
 		</div>
 	</script>
 
 	<script id="b-layer-ejs" type="text/ejs">
-		<div class="b-layer">
-			<div class="b-layer__h1"><%=file.name%></div>
-			<div class="js-img b-layer__img"></div>
-			<div class="b-layer__info">
-				<%
-				FileAPI.each(info, function(val, key){
-					if( Object.prototype.toString.call(val) == '[object Object]' ){
-						var sub = '';
-						FileAPI.each(val, function (val, key){ sub += '<div>'+key+': '+val+'</div>'; });
-						if( sub ){
-							%><%=key%><div style="margin: 0 0 5px 20px;"><%=sub%></div><%
-						}
-					} else {
-				%>
-					<div><%=key%>: <%=val%></div>
-				<%
-					}
-				});
-				%>
-			</div>
+		<div class="list-layer">
+			<div class="list-layer-h1"><%=file.name%></div>
+			<div class="js-img list-layer-img"></div>
+			
 		</div>
 	</script>
 
@@ -370,8 +364,8 @@
 				$('#buttons-panel').hide();
 			}
 
-			$(document).on('mouseenter mouseleave', '.b-button', function (evt){
-				$(evt.currentTarget).toggleClass('b-button_hover', evt.type == 'mouseenter');
+			$(document).on('mouseenter mouseleave', '.upload-button', function (evt){
+				$(evt.currentTarget).toggleClass('button-hover', evt.type == 'mouseenter');
 			});
 
 
@@ -386,6 +380,8 @@
 
 
 			$('input[type="file"]').on('change', function (evt){
+				Options.single = false;
+				if($(this).attr("multiple") == undefined) Options.single = true;
 				var files = FileAPI.getFiles(evt);
 				onFiles(files);
 				FileAPI.reset(evt.currentTarget);
@@ -408,10 +404,10 @@
 					FU.files.push(file);
 
 					if( /^image/.test(file.type) ){
-						FileAPI.Image(file).preview(35).rotate('auto').get(function (err, img){
+						FileAPI.Image(file).preview(50).rotate('auto').get(function (err, img){
 							if( !err ){
-								FU._getEl(file, '.js-left')
-									.addClass('b-file__left_border')
+								FU._getEl(file, '.image-thumbnail')
+									.addClass('.image-container-border')
 									.html(img)
 								;
 							}
@@ -489,7 +485,7 @@
 							url: 'http://local.pro/FileAPI/server/ctrl.php',
 							files: { file: file },
 							upload: function (){
-								FU._getEl(file).addClass('b-file_upload');
+								FU._getEl(file).addClass('file-upload');
 								FU._getEl(file, '.js-progress')
 									.css({ opacity: 0 }).show()
 									.animate({ opacity: 1 }, 100)
@@ -499,11 +495,11 @@
 								FU._getEl(file, '.js-bar').css('width', evt.loaded/evt.total*100+'%');
 							},
 							complete: function (err, xhr){
-								var state = err ? 'error' : 'done';
+								var state = err ? 'خاتالىق كۆرۈلدى' : 'مۇۋەپپەقىيەتلىك بولدى';
 
-								FU._getEl(file).removeClass('b-file_upload');
+								FU._getEl(file).removeClass('file-upload');
 								FU._getEl(file, '.js-progress').animate({ opacity: 0 }, 200, function (){ $(this).hide() });
-								FU._getEl(file, '.js-info').append(', <b class="b-file__'+state+'">'+(err ? (xhr.statusText || err) : state)+'</b>');
+								FU._getEl(file, '.js-info').append('، <b class="file-'+state+'">'+(err ? (xhr.statusText || err) : state)+'</b>');
 
 								FU.index++;
 								FU.active = false;
@@ -517,10 +513,15 @@
 
 			function onFiles(files){
 				var $Queue = $('<div/>').prependTo('#preview');
+				if(Options.single){
+					$('#preview').empty();
+					var $Queue = $('#preview');
+				}
+				
 
 				FileAPI.each(files, function (file){
 					if( file.size >= 25*FileAPI.MB ){
-						alert('Sorrow.\nMax size 25MB')
+						alert('كەچۈرۈڭ.\n25MB دىن چوڭ بولسا بولمايدۇ.')
 					}
 					else if( file.size === void 0 ){
 						$('#oooops').show();

@@ -2,7 +2,7 @@
 /**
  * FileAPI upload controller (example)
  */
-
+var_dump("haha");die;
 
 include    './FileAPI.class.php';
 
@@ -14,7 +14,7 @@ if( !empty($_SERVER['HTTP_ORIGIN']) ){
 	header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Range, Content-Disposition, Content-Type');
 }
 
-
+var_dump($_SERVER['REQUEST_METHOD']);die;
 if( $_SERVER['REQUEST_METHOD'] == 'OPTIONS' ){
 	exit;
 }
